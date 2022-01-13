@@ -1,16 +1,16 @@
 // // write a factorial function >> 5! = 5*4*3*2*1 = 120
 
-function factorial(n) {
-  let f = Array(n);
+// function factorial(n) {
+//   let f = Array(n);
 
-  if (n === 0 || n === 1) return 1;
+//   if (n === 0 || n === 1) return 1;
 
-  f[n] = factorial(n-1) * n;
+//   f[n] = factorial(n-1) * n;
 
-  return f[n];
-}
+//   return f[n];
+// }
 
-console.log(factorial(5))
+// console.log(factorial(5))
 
 // // factorial(5) >> f[5] = factorial(4) * 5
 // // factorial(4) >> f[4] = factorial(3) * 4
@@ -42,3 +42,17 @@ console.log(factorial(5))
 // // factorial(3) >> 3 * 2 >> 6
 // // factorial(4) >> 4 * 6 >> 24
 // // factorial(5) >> 5 * 24 >> 120
+
+
+const factorial = n => {
+    if (n === 0 || n === 1) return 1;
+
+    let f = new Array(n);
+
+    f[n] = factorial(n-1) * n
+
+    return f[n]
+}
+
+  
+  console.log(factorial(5))
