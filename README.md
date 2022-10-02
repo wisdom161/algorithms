@@ -64,3 +64,26 @@ client > lb > CDN (content distribution network) > multiple servers to handle AP
 need a cache server and precache service based on user ID
 
 content distribution network - serve media content as fast as possible
+
+## System Design 
+- build me Facebook feed
+
+Functional Requirements:
+- view a feed of posts (immediately see feed, manifests of posts)
+- creating new posts
+- view/interact with post (like, share, save)
+
+Non-functional Requirements:
+- 99.99% availability (can't go down)
+- No latency dependent internet speed
+- Consistency < Relevance of feed items (difference of consistency vs relevance?)
+- Traffic: 2B DAU x 2 post/day x 5mb/post => 20 PB/day => 230GB/s
+    - ~46,300 requests/second (most node servers can handle 3,600 connections at the same time)
+- Data: 200 PB
+- Storage: Mongo, S3 storage, cache (relevant videos: you like horror), CDN - basically cache that sits closest to the user
+- Bandwidth: ~4,600 servers
+
+- load balancer to handle requests
+- cache because you never want to have numerous direct connections to the db and cause it to crash
+- pre build the feed to make it available
+- cdn and s3 blob storage always go together, seperate media content
