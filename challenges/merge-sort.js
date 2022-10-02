@@ -4,7 +4,7 @@ const merge_sort = arr => {
     const merge = (arr1, arr2) => {
         let newArr = [];
 
-        for (let i = 0, j = 0; i < arr1.length|| j < arr2.length;) {
+        for (let i = 0, j = 0; i < arr1.length || j < arr2.length;) {
             if (arr1[i] === undefined) newArr.push(arr2[j++])
             else if (arr2[j] === undefined) newArr.push(arr1[i++])
             else if (arr1[i] < arr2[j]) newArr.push(arr1[i++])
@@ -31,10 +31,17 @@ console.log(merge_sort([13, 2, 1, 23, 5, 432, 2554, 453]))
 
 
 
+  // if array length is less than 2, return array
+    // create merge function, takes in 2 arrays, has 2 points to interate both arrays, and returns one new array;
+        // compare if i is undefined, then push j new array and iterate;
+        // if j is undefined, then push i to new arry and iterate i;
+        // if i < j (because we're sorting from least to greatest), then push i to new array and iterate;
+        // else push j to new array and iterate
+    // return new array
 
-
-
-
+    // create midpoint, math.floor the length divide by 2
+    // create arr1 and arr2 with slice
+    // return merge(mergeSort(arr1), mergeSort(arr2))
 
 
 
