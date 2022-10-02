@@ -10,22 +10,16 @@ const quickSort = (arr, left = 0, right = arr.length-1) => {
     const partition = (arr, left, right) => {
         const pivot = arr[Math.floor((left + right)/2)];
 
-        let i = left,
-            j = right;
-
-            while (i <= j) {
-                while (arr[i] < pivot) i++;
-
-                while (arr[j] > pivot) j--;
-
-                if (i <= j) {
-                    swap(arr, i, j);
-                    i++;
-                    j--
+            while (left <= right) {
+                while (arr[left] < pivot) left++;
+                while (arr[right] > pivot) right--;
+                if (left <= right) {
+                    swap(arr, left, right);
+                    left++;
+                    right--
                 }
-
             }
-        return i;
+        return left;
     }
     
     const index = partition(arr, left, right);
