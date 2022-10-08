@@ -1,5 +1,5 @@
 const findClosestValueInBst = (tree, target) => {
-    return findClosestValueInBtsHelper(tree, target, tree.value);
+    return findClosestValueInBstHelper(tree, target, tree.value);
 }
 
 
@@ -12,7 +12,7 @@ class BST {
     }
 }
 
-const findClosestValueInBtsHelper = (tree, target, closest) => {
+const findClosestValueInBstHelper = (tree, target, closest) => {
     let currentNode = tree;
 
     while (currentNode) {
