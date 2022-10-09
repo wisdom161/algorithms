@@ -4,14 +4,14 @@ const nonConstructibleChange = coins => {
     // coins.sort((a,b) => a-b);
     quickSort(coins);
 
-    let totalChange = 0;
+    let sum = 0;
 
     for(let i = 0; i < coins.length; i++) {
-        if (coins[i] > totalChange + 1) return totalChange += 1
+        if (coins[i] > sum + 1) return sum += 1
 
-        totalChange += coins[i]
+        sum += coins[i]
     }
-    return totalChange += 1
+    return sum += 1
 }
 
 const quickSort = (arr, left = 0, right = arr.length -1) => {
